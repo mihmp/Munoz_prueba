@@ -1,28 +1,32 @@
 #include <stdio.h>
-#include <conio.h>
 
-struct producto
-{
-    char nombre_Producto [50];
-    char codigo [25];
-    char desc_Producto [50];
+struct producto {
+    char codigo[25];
+    char nombre_producto[50];
+    char desc_producto[50];
     int cantidad;
-    int precio_Compra
+    float precio_compra;
 };
 
-
-int main(int argc, char const *argv[])
-{
+int main() {
     int opcion;
-    FILE *doc;
+    FILE *archivo;
     struct producto p;
-    
+
     do {
-        printf("MENU\n");
+        printf("Menu de Opciones\n");
         printf("1) Ingresar datos\n");
-        printf("2) Mostrar los datos ingresados\n");
+        printf("2) Mostrar datos\n");
         printf("3) Salir del programa\n");
         printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
-    return 0;
-}
+
+        switch (opcion) {
+            case 1:
+                archivo = fopen("productos.txt", "a");
+                printf("Ingrese el codigo del producto, el nombre, la descripcion, la cantidad y el precio de compra: ");
+                scanf("%s %s %s %d %f", p.codigo, p.nombre_producto, p.desc_producto, &p.cantidad, &p.precio_compra);
+                fprintf(archivo, "%s %s %s %d %.2f\n", p.codigo, p.nombre_producto, p.desc_producto, p.cantidad, p.precio_compra);
+                fclose(archivo);
+                break;
+ 
