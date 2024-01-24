@@ -29,4 +29,11 @@ int main() {
                 fprintf(archivo, "%s %s %s %d %.2f\n", p.codigo, p.nombre_producto, p.desc_producto, p.cantidad, p.precio_compra);
                 fclose(archivo);
                 break;
- 
+            case 2:
+                archivo = fopen("productos.txt", "r");
+                printf("Datos almacenados:\n");
+                while (fscanf(archivo, "%s %s %s %d %f", p.codigo, p.nombre_producto, p.desc_producto, &p.cantidad, &p.precio_compra) != EOF) {
+                    printf("%s %s %s %d %.2f\n", p.codigo, p.nombre_producto, p.desc_producto, p.cantidad, p.precio_compra);
+                }
+                fclose(archivo);
+                break;
